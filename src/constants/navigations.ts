@@ -1,14 +1,14 @@
 const authNavigations = {
-  AUTH_HOME: 'AuthHome',
-  LOGIN: 'Login',
-  SIGN_UP: 'SignUp',
+	AUTH_HOME: 'AuthHome',
+	LOGIN: 'Login',
+	SIGN_UP: 'SignUp',
 } as const;
 
 const feedTabNavigations = {
-  CHAT_HOME: 'ChatHome',
-  FEED_HOME: 'FeedHome',
-  MOIM_HOME: 'MoimHome',
-  MY_HOME: 'MyHome',
+	CHAT_HOME: 'ChatHome',
+	FEED_HOME: 'FeedHome',
+	MOIM_HOME: 'MoimHome',
+	MY_HOME: 'MyHome',
 } as const;
 
-export {authNavigations, feedTabNavigations};
+export { authNavigations, feedTabNavigations };

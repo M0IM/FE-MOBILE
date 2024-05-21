@@ -1,3 +1,3 @@
 type ThemeMode = 'light' | 'dark';
 
-export type {ThemeMode};
+export type { ThemeMode };

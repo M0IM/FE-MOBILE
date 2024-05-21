@@ -1,27 +1,27 @@
-import React, {ReactNode} from 'react';
+import React, { ReactNode } from 'react';
 import {
-  Pressable,
-  StyleSheet,
-  Text,
-  PressableProps,
-  Dimensions,
-  View,
-  StyleProp,
-  ViewStyle,
-  TextStyle,
+	Pressable,
+	StyleSheet,
+	Text,
+	PressableProps,
+	Dimensions,
+	View,
+	StyleProp,
+	ViewStyle,
+	TextStyle,
 } from 'react-native';
+import { colors } from '@/constants';
 import useThemeStore from '@/store/useThemeStore';
-import {ThemeMode} from '@/types/common';
-import {colors} from '@/constants';
+import { ThemeMode } from '@/types/common';
 
 interface CustomButtonProps extends PressableProps {
-  label: string;
-  variant?: 'filled' | 'outlined';
-  size?: 'large' | 'medium';
-  inValid?: boolean;
-  style?: StyleProp<ViewStyle>;
-  textStyle?: StyleProp<TextStyle>;
-  icon?: ReactNode;
+	label: string;
+	variant?: 'filled' | 'outlined';
+	size?: 'large' | 'medium';
+	inValid?: boolean;
+	style?: StyleProp<ViewStyle>;
+	textStyle?: StyleProp<TextStyle>;
+	icon?: ReactNode;
 }
 
 /**
@@ -36,90 +36,91 @@ interface CustomButtonProps extends PressableProps {
 const deviceHeight = Dimensions.get('screen').height;
 
 function CustomButton({
-  label,
-  variant = 'filled',
-  size = 'large',
-  inValid = false,
-  style = null,
-  textStyle = null,
-  icon = null,
-  ...props
+	label,
+	variant = 'filled',
+	size = 'large',
+	inValid = false,
+	style = null,
+	textStyle = null,
+	icon = null,
+	...props
 }: CustomButtonProps) {
-  const {theme} = useThemeStore();
-  const styles = styling(theme);
+	const { theme } = useThemeStore();
+	const styles = styling(theme);
 
-  return (
-    <Pressable
-      disabled={inValid}
-      style={({pressed}) => [
-        styles.container,
+	return (
+		<Pressable
+			disabled={inValid}
+			style={({ pressed }) => [
+				styles.container,
 
-        pressed ? styles[`${variant}Pressed`] : styles[variant],
-        inValid && styles.inValid,
-        style,
-      ]}
-      {...props}>
-      <View style={styles[size]}>
-        {icon}
-        <Text style={[styles.text, styles[`${variant}Text`], textStyle]}>
-          {label}
-        </Text>
-      </View>
-    </Pressable>
-  );
+				pressed ? styles[`${variant}Pressed`] : styles[variant],
+				inValid && styles.inValid,
+				style,
+			]}
+			{...props}
+		>
+			<View style={styles[size]}>
+				{icon}
+				<Text style={[styles.text, styles[`${variant}Text`], textStyle]}>
+					{label}
+				</Text>
+			</View>
+		</Pressable>
+	);
 }
 
 const styling = (theme: ThemeMode) =>
-  StyleSheet.create({
-    container: {
-      borderRadius: 50,
-      justifyContent: 'center',
-      flexDirection: 'row',
-    },
-    inValid: {
-      opacity: 0.5,
-    },
-    filled: {
-      backgroundColor: colors[theme].BLACK,
-    },
-    outlined: {
-      borderColor: colors[theme].GRAY_500,
-      borderWidth: 1,
-    },
-    filledPressed: {
-      backgroundColor: colors[theme].GRAY_700,
-    },
-    outlinedPressed: {
-      borderColor: colors[theme].BLACK,
-      borderWidth: 1,
-      opacity: 0.5,
-    },
-    large: {
-      width: '100%',
-      paddingVertical: deviceHeight > 700 ? 15 : 10,
-      alignItems: 'center',
-      justifyContent: 'center',
-      flexDirection: 'row',
-      gap: 5,
-    },
-    medium: {
-      width: '50%',
-      paddingVertical: deviceHeight > 700 ? 12 : 8,
-      alignItems: 'center',
-      justifyContent: 'center',
-      flexDirection: 'row',
-      gap: 5,
-    },
-    text: {
-      fontSize: 16,
-      fontWeight: '500',
-    },
-    filledText: {
-      color: colors[theme].WHITE,
-    },
-    outlinedText: {
-      color: colors[theme].BLACK,
-    },
-  });
+	StyleSheet.create({
+		container: {
+			borderRadius: 50,
+			justifyContent: 'center',
+			flexDirection: 'row',
+		},
+		inValid: {
+			opacity: 0.5,
+		},
+		filled: {
+			backgroundColor: colors[theme].BLACK,
+		},
+		outlined: {
+			borderColor: colors[theme].GRAY_500,
+			borderWidth: 1,
+		},
+		filledPressed: {
+			backgroundColor: colors[theme].GRAY_700,
+		},
+		outlinedPressed: {
+			borderColor: colors[theme].BLACK,
+			borderWidth: 1,
+			opacity: 0.5,
+		},
+		large: {
+			width: '100%',
+			paddingVertical: deviceHeight > 700 ? 15 : 10,
+			alignItems: 'center',
+			justifyContent: 'center',
+			flexDirection: 'row',
+			gap: 5,
+		},
+		medium: {
+			width: '50%',
+			paddingVertical: deviceHeight > 700 ? 12 : 8,
+			alignItems: 'center',
+			justifyContent: 'center',
+			flexDirection: 'row',
+			gap: 5,
+		},
+		text: {
+			fontSize: 16,
+			fontWeight: '500',
+		},
+		filledText: {
+			color: colors[theme].WHITE,
+		},
+		outlinedText: {
+			color: colors[theme].BLACK,
+		},
+	});
 
 export default CustomButton;
