@@ -1,11 +1,10 @@
-name: Create or Update Jira Issue
-on: 
+name: Create Jira issue # 1
+on: # 2
   issues: 
-    types: [opened, edited] # 2 - 트리거 이벤트에 수정 이벤트 추가
+    types: [opened] 
     
-jobs: 
+jobs: # 3
   create-issue:  # 4
-    if: github.event.action == 'opened' # 새 이슈일 때만 실행
     name: Create Jira issue # 5
     runs-on: ubuntu-latest # 6
     steps: # 7
@@ -21,31 +20,5 @@ jobs:
       with:
         project: MM  # 10 - 프로젝트 key
         issuetype: Task # 11 - 이슈 타입
-        summary: '${{ github.event.issue.title }}'
-        description: '${{ github.event.issue.html_url }}'
-
-  update-issue: # 새로운 작업 추가 - 4
-    if: github.event.action == 'edited' # 수정된 이슈일 때만 실행
-    name: Update Jira issue # 5
-    runs-on: ubuntu-latest # 6
-    steps: # 7
-    - name: Login
-      uses: atlassian/gajira-login@v3 # 8
-      env: 
-        JIRA_BASE_URL: ${{ secrets.JIRA_BASE_URL }} # 9
-        JIRA_API_TOKEN: ${{ secrets.JIRA_API_TOKEN }}
-        JIRA_USER_EMAIL: ${{ secrets.JIRA_USER_EMAIL }}
-
-    - name: Find Issue
-      id: find_issue
-      uses: atlassian/gajira-get-issue@v2
-      with:
-        jql: 'project = MM AND summary ~ "${{ github.event.issue.title }}"'
-    
-    - name: Update Issue
-      if: steps.find_issue.outputs.issues_count == 1
-      uses: atlassian/gajira-edit@v2
-      with:
-        issue: ${{ steps.find_issue.outputs.issue_id_0 }}
         summary: '${{ github.event.issue.title }}'
         description: '${{ github.event.issue.html_url }}'
