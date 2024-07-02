@@ -3,7 +3,7 @@ name: "[Etc] 자유 양식 커스텀 템플릿"
 about: Feat, Bug 외 추가하고 싶은 이슈가 있다면 이 템플릿을 활용해 이슈를 생성해주세요!
 title: "[Etc] 자유 양식 커스텀 템플릿"
 labels: ''
-assignees: ''
+assignees: daindaind, dydals3440
 
 ---
 
