@@ -7,7 +7,7 @@ import FeedTabNavigator from '../tab/FeedTabNavigator';
 interface RootNavigatorProps {}
 
 function RootNavigator({}: RootNavigatorProps) {
-	const isLoggedIn = true;
+	const isLoggedIn = false;
 	return <>{isLoggedIn ? <FeedTabNavigator /> : <AuthStackNavigator />}</>;
 }
 
