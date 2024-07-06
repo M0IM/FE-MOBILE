@@ -2,9 +2,11 @@ import React from 'react';
 import { Dimensions, Image, Pressable, Text, View } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { StackScreenProps } from '@react-navigation/stack';
+// eslint-disable-next-line import/extensions
 import CustomButton from '@/components/common/CustomButton/CustomButton.tsx';
 import { authNavigations } from '@/constants';
 import { AuthStackParamList } from '@/navigations/stack/AuthStackNavigator';
+// eslint-disable-next-line import/extensions
 import * as S from './AuthHomeScreen.style.ts';
 
 /** *
