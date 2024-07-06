@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, Pressable, Text, View } from 'react-native';
+import { Dimensions, Image, Pressable, Text, View } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { StackScreenProps } from '@react-navigation/stack';
 import CustomButton from '@/components/common/CustomButton/CustomButton.tsx';
@@ -17,25 +17,51 @@ type AuthHomeScreenProps = StackScreenProps<
 >;
 
 function AuthHomeScreen({ navigation }: AuthHomeScreenProps) {
+	const width = Dimensions.get('screen').width / 2;
 	return (
 		<S.SafeContainer>
-			<View>
-				<Image resizeMode="contain" />
-			</View>
+			<S.ImageContainer width={width}>
+				<S.Image resizeMode="contain" source={require('@/assets/Logo.png')} />
+				<S.TextContainer>
+					<S.TitleText>moim</S.TitleText>
+					<S.SubTitleText>완벽한 모임의 시작, moim</S.SubTitleText>
+				</S.TextContainer>
+			</S.ImageContainer>
 			<S.ButtonContainer>
-				<S.KakaoButton
-					label="카카오 로그인하기"
-					onPress={() => authNavigations.KAKAO}
-					icon={
-						<Ionicons name={'chatbubble-sharp'} color={'#181500'} size={16} />
-					}
-				/>
+				<S.CircleButtonContainer>
+					<S.CircleButton
+						onPress={() => navigation.navigate(authNavigations.KAKAO)}
+					>
+						<S.CircleLogoImage
+							resizeMode="contain"
+							source={require('@/assets/kakao.png')}
+						/>
+					</S.CircleButton>
+					<S.CircleButton
+						style={{ backgroundColor: 'white' }}
+						onPress={() => navigation.navigate(authNavigations.KAKAO)}
+					>
+						<S.CircleLogoImage
+							resizeMode="contain"
+							source={require('@/assets/google.png')}
+						/>
+					</S.CircleButton>
+					<S.CircleButton
+						onPress={() => navigation.navigate(authNavigations.KAKAO)}
+						style={{ backgroundColor: 'black' }}
+					>
+						<S.CircleLogoImage
+							resizeMode="contain"
+							source={require('@/assets/apple.png')}
+						/>
+					</S.CircleButton>
+				</S.CircleButtonContainer>
 				<CustomButton
 					label="이메일 로그인하기"
 					onPress={() => navigation.navigate(authNavigations.LOGIN)}
 				/>
 				<Pressable onPress={() => navigation.navigate(authNavigations.SIGN_UP)}>
-					<Text>이메일로 가입하기</Text>
+					<Text>회원 가입</Text>
 				</Pressable>
 			</S.ButtonContainer>
 		</S.SafeContainer>
