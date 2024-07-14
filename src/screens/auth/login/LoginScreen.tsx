@@ -2,6 +2,7 @@ import { useRef } from 'react';
 import { StyleSheet, TextInput } from 'react-native';
 import CustomButton from '@/components/common/CustomButton/CustomButton';
 import InputField from '@/components/common/InputField/InputField';
+import MyButton from '@/components/common/MyButton/MyButton';
 import useForm from '@/hooks/useForm';
 import { validateLogin } from '@/utils';
 import * as S from './LoginScreen.style';
@@ -63,6 +64,7 @@ function LoginScreen({}: LoginScreenProps) {
 				size="large"
 				onPress={handleSubmit}
 			/>
+			<MyButton />
 		</S.SafetyContainer>
 	);
 }
