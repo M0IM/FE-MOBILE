@@ -27,6 +27,7 @@ function FeedHomeScreen({}: FeedHomeScreenProps) {
 	return (
 		<SafeAreaView style={styles.container}>
 			<Text>피드 스크린</Text>
+			<Text className="text-blue-600">native wind 테스트입니다.</Text>
 			<Text>{userData?.firstName}</Text>
 		</SafeAreaView>
 	);
