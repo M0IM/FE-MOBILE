@@ -25,8 +25,10 @@ function AuthHomeScreen({ navigation }: AuthHomeScreenProps) {
 			<S.ImageContainer width={width}>
 				<S.Image resizeMode="contain" source={require('@/assets/Logo.png')} />
 				<S.TextContainer>
-					<S.TitleText>moim</S.TitleText>
-					<S.SubTitleText>완벽한 모임의 시작, moim</S.SubTitleText>
+					<Text className="text-5xl font-bold">moim</Text>
+					<Text className="text-xl font-semibold">
+						완벽한 모임의 시작, moim
+					</Text>
 				</S.TextContainer>
 			</S.ImageContainer>
 			<S.ButtonContainer>
