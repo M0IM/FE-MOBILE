@@ -14,7 +14,7 @@ import RecruitMemberSection from '@/components/feedHome/RecruitMemberSection';
 
 function FeedHomeScreen() {
 	return (
-		<SafeAreaView className="flex-1 bg-light-bg-white dark:bg-light-bg-white">
+		<SafeAreaView className="flex-1 bg-light-common-white dark:bg-light-common-black">
 			<ScrollView>
 				<FeedBanner />
 				{/* Second Section */}

@@ -3,7 +3,7 @@ import { DUMMY_MOIM } from '@/components/feedHome/RecruitMemberSection.tsx';
 
 function Item({ item }) {
 	return (
-		<Pressable className="flex-col shadow-amber-50 justify-around w-[133] h-[206] items-center p-2 rounded-2xl bg-[#F8F9F9] active:bg-slate-100">
+		<Pressable className="flex-col shadow-amber-50 justify-around w-[133] h-[206] items-center p-2 rounded-2xl bg-light-gray-200 dark:bg-dark-gray-200 active:bg-slate-100">
 			<Image
 				source={{ uri: item.imageUri }}
 				className="w-full h-full rounded-xl relative"
@@ -17,14 +17,14 @@ function Item({ item }) {
 					<Text
 						numberOfLines={1}
 						adjustsFontSizeToFit
-						className="text-sm text-black"
+						className="text-sm text-light-common-black dark:text-light-common-white"
 					>
 						{item.title}
 					</Text>
 					<Text
 						numberOfLines={1}
 						adjustsFontSizeToFit
-						className="text-sm text-black"
+						className="text-sm text-light-common-black dark:text-light-common-white"
 					>
 						벤사모 - 밴드를 사랑하는 모임
 					</Text>
@@ -37,7 +37,7 @@ function Item({ item }) {
 function IntroMoim() {
 	return (
 		<View className="px-3 py-6">
-			<Text className="text-base text-color mb-5 font-semibold">
+			<Text className="text-base text-light-common-black dark:text-light-common-white mb-5 font-semibold">
 				우리 모임을 소개합니다🔥
 			</Text>
 			<FlatList
