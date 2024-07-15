@@ -1,9 +1,10 @@
+import React from 'react';
 import { StyleSheet } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { authNavigations, colors } from '@/constants';
-import AuthHomeScreen from '@/screens/auth/home/AuthHomeScreen';
-import LoginScreen from '@/screens/auth/login/LoginScreen';
-import SignUpScreen from '@/screens/auth/signup/SignUpScreen';
+import AuthHomeScreen from '@/screens/auth/AuthHomeScreen';
+import LoginScreen from '@/screens/auth/LoginScreen';
+import SignUpScreen from '@/screens/auth/SignUpScreen';
 import useThemeStore from '@/store/useThemeStore';
 import { ThemeMode } from '@/types';
 
