@@ -62,30 +62,30 @@ function Item({ item }) {
 				className="w-[121] h-[56] rounded-xl"
 			/>
 			<View className="flex flex-col gap-1 mt-2">
-				<Text className="font-bold text-xm">{item.title}</Text>
-				<Text className="font-semibold text-small text-[#72787F]">
+				<Text className="font-bold text-base">{item.title}</Text>
+				<Text className="font-semibold text-md text-[#72787F]">
 					{item.description}
 				</Text>
 			</View>
-			<View className="flex flex-row items-center justify-center gap-2">
+			<View className="flex flex-row items-center justify-between w-full gap-2">
 				<Text
 					numberOfLines={1}
 					adjustsFontSizeToFit
-					className="text-small text-[#72787F]"
+					className="text-sm text-[#72787F]"
 				>
 					외국 {item.language}
 				</Text>
 				<Text
 					numberOfLines={1}
 					adjustsFontSizeToFit
-					className="text-small text-[#72787F]"
+					className="text-sm text-[#72787F]"
 				>
 					{item.region}
 				</Text>
 				<Text
 					numberOfLines={1}
 					adjustsFontSizeToFit
-					className="text-small text-[#72787F]"
+					className="text-sm text-[#72787F]"
 				>
 					참여인원 {item.count}
 				</Text>
@@ -97,7 +97,7 @@ function Item({ item }) {
 function RecruitMemberSection() {
 	return (
 		<View className="p-3">
-			<Text className="text-lg text-color font-semibold">
+			<Text className="text-base text-color font-semibold mb-3">
 				지금 이 모임 멤버 모집 중!
 			</Text>
 			<FlatList

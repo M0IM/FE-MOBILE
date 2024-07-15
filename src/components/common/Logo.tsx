@@ -6,7 +6,10 @@ type LogoProps = NavigationProp<FeedTabParamList>;
 
 function Logo(navigation: LogoProps) {
 	return (
-		<Pressable className="ml-2" onPress={() => navigation.navigate('MoimHome')}>
+		<Pressable
+			className="p-2 rounded-2xl active:bg-slate-100"
+			onPress={() => navigation.navigate('FeedHome')}
+		>
 			<Image className="w-8 h-8 p-5" source={require('@/assets/Logo.png')} />
 		</Pressable>
 	);

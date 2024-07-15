@@ -67,7 +67,7 @@ function RankItem({ item }) {
 function FamousMoim() {
 	return (
 		<View className="p-3">
-			<Text className="text-lg text-color mb-5 font-semibold">인기 모임</Text>
+			<Text className="text-base text-color mb-5 font-semibold">인기 모임</Text>
 			<FlatList
 				data={DUMMY_FAMOUS}
 				renderItem={RankItem}

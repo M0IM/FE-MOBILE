@@ -1,5 +1,5 @@
 import { FlatList, Image, Pressable, Text, View } from 'react-native';
-import { DUMMY_MOIM } from '@/components/RecruitMemberSection';
+import { DUMMY_MOIM } from '@/components/feedHome/RecruitMemberSection.tsx';
 
 function UpdateItem({ item }) {
 	return (
@@ -10,8 +10,8 @@ function UpdateItem({ item }) {
 			/>
 			<View className="flex flex-1 ml-5 flex-col h-full py-2 justify-between">
 				<View>
-					<Text className="font-bold text-xm">{item.title}</Text>
-					<Text className="font-semibold text-small text-[#72787F]">
+					<Text className="font-bold text-lg">{item.title}</Text>
+					<Text className="font-semibold text-md text-[#72787F]">
 						{item.description}
 					</Text>
 				</View>
@@ -19,21 +19,21 @@ function UpdateItem({ item }) {
 					<Text
 						numberOfLines={1}
 						adjustsFontSizeToFit
-						className="text-small text-[#72787F]"
+						className="text-sm text-[#72787F]"
 					>
 						외국 {item.language}
 					</Text>
 					<Text
 						numberOfLines={1}
 						adjustsFontSizeToFit
-						className="text-small text-[#72787F]"
+						className="text-sm text-[#72787F]"
 					>
 						{item.region}
 					</Text>
 					<Text
 						numberOfLines={1}
 						adjustsFontSizeToFit
-						className="text-small text-[#72787F]"
+						className="text-sm text-[#72787F]"
 					>
 						참여인원 {item.count}
 					</Text>
@@ -46,7 +46,7 @@ function UpdateItem({ item }) {
 function NewUpdateMoim() {
 	return (
 		<View className="p-3">
-			<Text className="text-lg text-color mb-5 font-semibold">
+			<Text className="text-base text-color mt-5 font-semibold">
 				새로 업데이트 된 신규 모임
 			</Text>
 			<FlatList

@@ -1,9 +1,10 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { RouteProp } from '@react-navigation/native';
 import Logo from '@/components/common/Logo';
+import FeedHomeHeaderRight from '@/components/feedHome/FeedHomeHeaderRight.tsx';
 import { colors, feedTabNavigations } from '@/constants';
 import ChatHomeScreen from '@/screens/chat/ChatHomeScreen';
 import FeedHomeScreen from '@/screens/feed/FeedHomeScreen';
@@ -83,8 +84,9 @@ function FeedTabNavigator() {
 				component={FeedHomeScreen}
 				options={({ navigation }) => ({
 					headerShown: true,
-					headerTitle: '설정',
+					headerTitle: '',
 					headerLeft: () => Logo(navigation),
+					headerRight: () => FeedHomeHeaderRight(navigation),
 				})}
 			/>
 			<Tab.Screen
