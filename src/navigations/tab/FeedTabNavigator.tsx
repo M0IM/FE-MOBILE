@@ -79,7 +79,7 @@ function FeedTabNavigator() {
 			})}
 		>
 			<Tab.Screen
-				name={feedTabNavigations.MOIM_HOME}
+				name={feedTabNavigations.FEED_HOME}
 				component={FeedHomeScreen}
 				options={({ navigation }) => ({
 					headerShown: true,
@@ -88,7 +88,7 @@ function FeedTabNavigator() {
 				})}
 			/>
 			<Tab.Screen
-				name={feedTabNavigations.FEED_HOME}
+				name={feedTabNavigations.MOIM_HOME}
 				component={MoimHomeScreen}
 			/>
 			<Tab.Screen
