@@ -10,6 +10,8 @@
 		"test": "jest"
 	},
 	"dependencies": {
+		"@emotion/native": "^11.11.0",
+		"@emotion/react": "^11.11.4",
 		"@react-native-masked-view/masked-view": "^0.3.1",
 		"@react-navigation/bottom-tabs": "^6.5.20",
 		"@react-navigation/native": "^6.1.17",
@@ -27,6 +29,7 @@
 		"react-native-screens": "^3.31.1",
 		"react-native-url-polyfill": "^2.0.0",
 		"react-native-vector-icons": "^10.1.0",
+		"react-native-webview": "^13.10.4",
 		"zustand": "^4.5.2"
 	},
 	"devDependencies": {

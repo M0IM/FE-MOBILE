@@ -2,6 +2,7 @@ const authNavigations = {
 	AUTH_HOME: 'AuthHome',
 	LOGIN: 'Login',
 	SIGN_UP: 'SignUp',
+	KAKAO: 'Kakao',
 } as const;
 
 const feedTabNavigations = {
