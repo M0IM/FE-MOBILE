@@ -54,11 +54,19 @@ function RankItem({ item }) {
 			onPress={handleMoveDetailPage}
 			className="flex flex-row items-center justify-center p-1 active:bg-slate-100 active:rounded-2xl"
 		>
-			<Text className="mr-4 text-[#C9CCD1] font-bold">{item.rank}</Text>
-			<Text className="flex-1">{item.title}</Text>
+			<Text className="mr-4 text-light-gray-400 dark:text-dark-gray-400 font-bold">
+				{item.rank}
+			</Text>
+			<Text className="flex-1 text-light-common-black dark:text-light-common-white">
+				{item.title}
+			</Text>
 			<View className="flex flex-row items-center justify-center gap-3">
-				<Text className="text-[#C9CCD1] text-small">{item.region}</Text>
-				<Text className="text-small">{item.count}명</Text>
+				<Text className="text-light-gray-400 dark:text-dark-gray-400 text-small">
+					{item.region}
+				</Text>
+				<Text className="text-smal text-light-common-black dark:text-light-common-white">
+					{item.count}명
+				</Text>
 			</View>
 		</Pressable>
 	);
@@ -67,7 +75,9 @@ function RankItem({ item }) {
 function FamousMoim() {
 	return (
 		<View className="p-3">
-			<Text className="text-base text-color mb-5 font-semibold">인기 모임</Text>
+			<Text className="text-base text-color mb-5 font-semibold text-light-common-black dark:text-light-common-white">
+				인기 모임
+			</Text>
 			<FlatList
 				data={DUMMY_FAMOUS}
 				renderItem={RankItem}

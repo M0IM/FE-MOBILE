@@ -56,14 +56,14 @@ export const DUMMY_MOIM = [
 
 function Item({ item }) {
 	return (
-		<Pressable className="flex-col justify-around w-[155] h-[194] items-center p-2 rounded-2xl bg-[#F8F9F9] active:bg-slate-100">
+		<Pressable className="flex-col justify-around w-[155] h-[194] items-center p-2 rounded-2xl bg-light-gray-200 dark:bg-dark-gray-200 active:bg-slate-100">
 			<Image
 				source={{ uri: item.imageUri }}
 				className="w-[121] h-[56] rounded-xl"
 			/>
 			<View className="flex flex-col gap-1 mt-2">
 				<Text className="font-bold text-base">{item.title}</Text>
-				<Text className="font-semibold text-md text-[#72787F]">
+				<Text className="font-semibold text-md text-light-gray-600 dark:text-dark-gray-600">
 					{item.description}
 				</Text>
 			</View>
@@ -71,21 +71,21 @@ function Item({ item }) {
 				<Text
 					numberOfLines={1}
 					adjustsFontSizeToFit
-					className="text-sm text-[#72787F]"
+					className="text-sm text-light-gray-600 dark:text-dark-gray-600"
 				>
 					외국 {item.language}
 				</Text>
 				<Text
 					numberOfLines={1}
 					adjustsFontSizeToFit
-					className="text-sm text-[#72787F]"
+					className="text-sm text-light-gray-600 dark:text-dark-gray-600"
 				>
 					{item.region}
 				</Text>
 				<Text
 					numberOfLines={1}
 					adjustsFontSizeToFit
-					className="text-sm text-[#72787F]"
+					className="text-sm text-light-gray-600 dark:text-dark-gray-600"
 				>
 					참여인원 {item.count}
 				</Text>
@@ -97,7 +97,7 @@ function Item({ item }) {
 function RecruitMemberSection() {
 	return (
 		<View className="p-3">
-			<Text className="text-base text-color font-semibold mb-3">
+			<Text className="text-base text-light-common-black dark:text-light-common-white font-semibold mb-3 py-3">
 				지금 이 모임 멤버 모집 중!
 			</Text>
 			<FlatList
