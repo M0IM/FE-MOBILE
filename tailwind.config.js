@@ -9,6 +9,9 @@ module.exports = {
 	],
 	theme: {
 		extend: {},
+		colors: {
+			main: '#00F0A1',
+		},
 	},
 	plugins: [nativewind()],
 };
