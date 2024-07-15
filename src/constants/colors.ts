@@ -38,8 +38,6 @@ const colors = {
 	},
 } as const;
 
-type ColorTheme = keyof typeof colors;
-
 const colorHex = {
 	RED: colors.light.PINK_400,
 	BLUE: colors.light.BLUE_400,
@@ -49,4 +47,3 @@ const colorHex = {
 };
 
 export { colors, colorHex };
-export type { ColorTheme };
