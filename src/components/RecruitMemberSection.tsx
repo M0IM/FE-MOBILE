@@ -1,7 +1,7 @@
-import { FlatList, Image, ScrollView, Text, View } from 'react-native';
+import { FlatList, Image, Pressable, Text, View } from 'react-native';
 import styles from 'react-native-webview/lib/WebView.styles';
 
-const DUMMY_MOIM = [
+export const DUMMY_MOIM = [
 	{
 		id: 1,
 		title: '우리 동네 배드민턴',
@@ -32,31 +32,31 @@ const DUMMY_MOIM = [
 		region: '서울',
 		count: 6,
 	},
-	{
-		id: 4,
-		title: '우리 동네 배드민턴',
-		description: '배드민턴 열심히해서, 대회도 나가고!',
-		imageUri:
-			'https://plus.unsplash.com/premium_photo-1677543938005-6e0eb736dc19?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-		language: '한국어',
-		region: '서울',
-		count: 6,
-	},
-	{
-		id: 5,
-		title: '우리 동네 배드민턴',
-		description: '배드민턴 열심히해서, 대회도 나가고!',
-		imageUri:
-			'https://plus.unsplash.com/premium_photo-1677543938005-6e0eb736dc19?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-		language: '한국어',
-		region: '서울',
-		count: 6,
-	},
+	// {
+	// 	id: 4,
+	// 	title: '우리 동네 배드민턴',
+	// 	description: '배드민턴 열심히해서, 대회도 나가고!',
+	// 	imageUri:
+	// 		'https://plus.unsplash.com/premium_photo-1677543938005-6e0eb736dc19?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+	// 	language: '한국어',
+	// 	region: '서울',
+	// 	count: 6,
+	// },
+	// {
+	// 	id: 5,
+	// 	title: '우리 동네 배드민턴',
+	// 	description: '배드민턴 열심히해서, 대회도 나가고!',
+	// 	imageUri:
+	// 		'https://plus.unsplash.com/premium_photo-1677543938005-6e0eb736dc19?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+	// 	language: '한국어',
+	// 	region: '서울',
+	// 	count: 6,
+	// },
 ];
 
 function Item({ item }) {
 	return (
-		<View className="flex-col justify-around w-[155] h-[194] items-center p-2 rounded-2xl bg-[#F8F9F9]">
+		<Pressable className="flex-col justify-around w-[155] h-[194] items-center p-2 rounded-2xl bg-[#F8F9F9] active:bg-slate-100">
 			<Image
 				source={{ uri: item.imageUri }}
 				className="w-[121] h-[56] rounded-xl"
@@ -90,7 +90,7 @@ function Item({ item }) {
 					참여인원 {item.count}
 				</Text>
 			</View>
-		</View>
+		</Pressable>
 	);
 }
 
@@ -100,7 +100,6 @@ function RecruitMemberSection() {
 			<Text className="text-lg text-color font-semibold">
 				지금 이 모임 멤버 모집 중!
 			</Text>
-
 			<FlatList
 				data={DUMMY_MOIM}
 				renderItem={Item}
@@ -111,6 +110,7 @@ function RecruitMemberSection() {
 					flexDirection: 'row',
 					gap: 5,
 				}}
+				showsHorizontalScrollIndicator={false}
 			/>
 		</View>
 	);

@@ -7,8 +7,9 @@ import {
 	Text,
 	View,
 } from 'react-native';
-import FamousMoim from '@/components/FamousMoim.tsx';
-import RecruitMemberSection from '@/components/RecruitMemberSection.tsx';
+import FamousMoim from '@/components/FamousMoim';
+import NewUpdateMoim from '@/components/NewUpdateMoim';
+import RecruitMemberSection from '@/components/RecruitMemberSection';
 
 interface FeedHomeScreenProps {}
 
@@ -37,15 +38,11 @@ function FeedHomeScreen({}: FeedHomeScreenProps) {
 				<RecruitMemberSection />
 				{/*	Third Section */}
 				<FamousMoim />
+				{/*	Fourth Section */}
+				<NewUpdateMoim />
 			</ScrollView>
 		</SafeAreaView>
 	);
 }
-
-const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-	},
-});
 
 export default FeedHomeScreen;
