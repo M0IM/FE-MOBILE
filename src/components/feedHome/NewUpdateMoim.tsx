@@ -1,49 +1,16 @@
-import { FlatList, Image, Pressable, Text, View } from 'react-native';
+import { FlatList, Text, View } from 'react-native';
+import { NavigationProp, useNavigation } from '@react-navigation/native';
+import HorizontalCard from '@/components/common/HorizontalCard';
 import { DUMMY_MOIM } from '@/components/feedHome/RecruitMemberSection';
-
-function UpdateItem({ item }) {
-	return (
-		<Pressable className="flex-row justify-around w-full h-[100] items-center p-2 rounded-2xl bg-light-gray-200 dark:bg-dark-gray-200 active:bg-hover">
-			<Image
-				source={{ uri: item.imageUri }}
-				className="w-[75] h-[75] rounded-xl"
-			/>
-			<View className="flex flex-1 ml-5 flex-col h-full py-2 justify-between">
-				<View>
-					<Text className="font-bold text-lg">{item.title}</Text>
-					<Text className="font-semibold text-md text-light-gray-600 dark:text-dark-gray-600">
-						{item.description}
-					</Text>
-				</View>
-				<View className="flex-row items-center justify-start gap-2">
-					<Text
-						numberOfLines={1}
-						adjustsFontSizeToFit
-						className="text-sm text-light-gray-600 dark:text-dark-gray-600"
-					>
-						외국 {item.language}
-					</Text>
-					<Text
-						numberOfLines={1}
-						adjustsFontSizeToFit
-						className="text-sm text-light-gray-600 dark:text-dark-gray-600"
-					>
-						{item.region}
-					</Text>
-					<Text
-						numberOfLines={1}
-						adjustsFontSizeToFit
-						className="text-sm text-light-gray-600 dark:text-dark-gray-600"
-					>
-						참여인원 {item.count}
-					</Text>
-				</View>
-			</View>
-		</Pressable>
-	);
-}
+import { MoimSpaceStackParamList } from '@/navigations/stack/MoimSpaceStackNavigator';
 
 function NewUpdateMoim() {
+	const navigation = useNavigation<NavigationProp<MoimSpaceStackParamList>>();
+	const handleMoveDetailPage = (id: number) => {
+		navigation.navigate('MoimDetail', {
+			id,
+		});
+	};
 	return (
 		<View className="p-3">
 			<Text className="text-base text-light-common-black dark:text-light-common-white mt-5 font-semibold">
@@ -51,7 +18,9 @@ function NewUpdateMoim() {
 			</Text>
 			<FlatList
 				data={DUMMY_MOIM}
-				renderItem={UpdateItem}
+				renderItem={({ item }) => (
+					<HorizontalCard item={item} onPress={handleMoveDetailPage} />
+				)}
 				keyExtractor={DUMMY_MOIM.id}
 				contentContainerStyle={{
 					display: 'flex',
