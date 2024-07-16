@@ -1,7 +1,8 @@
 import { Pressable, Text, View } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { NavigationProp } from '@react-navigation/native';
-import { FeedTabParamList } from '@/navigations/tab/FeedTabNavigator.tsx';
+import Avatar from '@/components/common/Avatar.tsx';
+import { FeedTabParamList } from '@/navigations/tab/FeedTabNavigator';
 
 type LogoProps = NavigationProp<FeedTabParamList>;
 

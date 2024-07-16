@@ -1,5 +1,4 @@
 import { FlatList, Image, Pressable, Text, View } from 'react-native';
-import styles from 'react-native-webview/lib/WebView.styles';
 
 export const DUMMY_MOIM = [
 	{

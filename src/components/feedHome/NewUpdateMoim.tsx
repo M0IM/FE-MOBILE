@@ -1,5 +1,5 @@
 import { FlatList, Image, Pressable, Text, View } from 'react-native';
-import { DUMMY_MOIM } from '@/components/feedHome/RecruitMemberSection.tsx';
+import { DUMMY_MOIM } from '@/components/feedHome/RecruitMemberSection';
 
 function UpdateItem({ item }) {
 	return (
