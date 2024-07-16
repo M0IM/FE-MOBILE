@@ -2,7 +2,7 @@ import { FlatList, Text, View } from 'react-native';
 import { NavigationProp, useNavigation } from '@react-navigation/native';
 import HorizontalCard from '@/components/common/HorizontalCard';
 import { DUMMY_MOIM } from '@/components/feedHome/RecruitMemberSection';
-import { MoimSpaceStackParamList } from '@/navigations/stack/MoimSpaceStackNavigator.tsx';
+import { MoimSpaceStackParamList } from '@/navigations/stack/MoimSpaceStackNavigator';
 
 function NewUpdateMoim() {
 	const navigation = useNavigation<NavigationProp<MoimSpaceStackParamList>>();
