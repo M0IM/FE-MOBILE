@@ -3,7 +3,7 @@ import { DUMMY_MOIM } from '@/components/feedHome/RecruitMemberSection';
 
 function UpdateItem({ item }) {
 	return (
-		<Pressable className="flex-row justify-around w-full h-[100] items-center p-2 rounded-2xl bg-light-gray-200 dark:bg-dark-gray-200 active:bg-slate-100">
+		<Pressable className="flex-row justify-around w-full h-[100] items-center p-2 rounded-2xl bg-light-gray-200 dark:bg-dark-gray-200 active:bg-hover">
 			<Image
 				source={{ uri: item.imageUri }}
 				className="w-[75] h-[75] rounded-xl"

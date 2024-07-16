@@ -52,7 +52,7 @@ function RankItem({ item }) {
 	return (
 		<Pressable
 			onPress={handleMoveDetailPage}
-			className="flex flex-row items-center justify-center p-1 active:bg-slate-100 active:rounded-2xl"
+			className="flex flex-row items-center justify-center p-1 active:bg-hover active:rounded-2xl"
 		>
 			<Text className="mr-4 text-light-gray-400 dark:text-dark-gray-400 font-bold">
 				{item.rank}

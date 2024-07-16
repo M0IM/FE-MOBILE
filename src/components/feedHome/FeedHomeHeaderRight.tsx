@@ -9,18 +9,14 @@ type LogoProps = NavigationProp<FeedTabParamList>;
 function FeedHomeHeaderRight(navigation: LogoProps) {
 	return (
 		<View className="flex flex-row items-center justify-center gap-4 mr-2">
-			<Pressable className="border-[#00F0A1] border-2 px-2 py-1 rounded-xl active:bg-slate-100">
+			<Pressable className="border-[#00F0A1] border-2 px-2 py-1 rounded-xl active:bg-hover">
 				<Text className="text-[#00F0A1]">AI 추천</Text>
 			</Pressable>
-			<Pressable className="active:bg-slate-100 p-1 rounded-2xl">
+			<Pressable className="active:bg-hover p-1 rounded-2xl">
 				<Ionicons name="search" size={24} />
 			</Pressable>
-			<Pressable className="active:bg-slate-100 p-1 rounded-2xl">
-				<Ionicons
-					name="notifications-outline"
-					size={24}
-					className="active:bg-slate-100"
-				/>
+			<Pressable className="active:bg-hover p-1 rounded-2xl">
+				<Ionicons name="notifications-outline" size={24} />
 			</Pressable>
 		</View>
 	);

@@ -86,6 +86,7 @@ module.exports = {
 				naver: '#2DB400',
 			},
 			main: '#00F0A1',
+			hover: '#f1f5f9',
 		},
 		fontSize: {
 			tiny: 5,
