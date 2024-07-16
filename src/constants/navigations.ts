@@ -12,4 +12,9 @@ const feedTabNavigations = {
 	MY_HOME: 'MyHome',
 } as const;
 
-export { authNavigations, feedTabNavigations };
+const moimSpaceNavigations = {
+	MOIM_HOME: 'MoimHome',
+	MOIM_DETAIL: 'MoimDetail',
+} as const;
+
+export { authNavigations, feedTabNavigations, moimSpaceNavigations };
