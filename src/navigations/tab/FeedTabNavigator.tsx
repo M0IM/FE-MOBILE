@@ -1,14 +1,16 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { RouteProp } from '@react-navigation/native';
+import Logo from '@/components/common/Logo';
+import FeedHomeHeaderRight from '@/components/feedHome/FeedHomeHeaderRight.tsx';
+import { colors, feedTabNavigations } from '@/constants';
 import ChatHomeScreen from '@/screens/chat/ChatHomeScreen';
 import FeedHomeScreen from '@/screens/feed/FeedHomeScreen';
 import MoimHomeScreen from '@/screens/moim/MoimHomeScreen';
 import MyHomeScreen from '@/screens/my/MyHomeScreen';
 import useThemeStore from '@/store/useThemeStore';
-import { colors, feedTabNavigations } from '../../constants';
 
 export type FeedTabParamList = {
 	[feedTabNavigations.FEED_HOME]: undefined;
@@ -80,6 +82,12 @@ function FeedTabNavigator() {
 			<Tab.Screen
 				name={feedTabNavigations.FEED_HOME}
 				component={FeedHomeScreen}
+				options={({ navigation }) => ({
+					headerShown: true,
+					headerTitle: '',
+					headerLeft: () => Logo(navigation),
+					headerRight: () => FeedHomeHeaderRight(navigation),
+				})}
 			/>
 			<Tab.Screen
 				name={feedTabNavigations.MOIM_HOME}

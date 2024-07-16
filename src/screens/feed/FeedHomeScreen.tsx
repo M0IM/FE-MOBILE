@@ -1,42 +1,34 @@
-import { useEffect, useState } from 'react';
-import { SafeAreaView, StyleSheet, Text } from 'react-native';
+import {
+	Dimensions,
+	Pressable,
+	SafeAreaView,
+	ScrollView,
+	Text,
+	View,
+} from 'react-native';
+import Avatar from '@/components/common/Avatar.tsx';
+import FamousMoim from '@/components/feedHome/FamousMoim';
+import FeedBanner from '@/components/feedHome/FeedBanner';
+import IntroMoim from '@/components/feedHome/IntroMoim';
+import NewUpdateMoim from '@/components/feedHome/NewUpdateMoim';
+import RecruitMemberSection from '@/components/feedHome/RecruitMemberSection';
 
-interface FeedHomeScreenProps {}
-
-function FeedHomeScreen({}: FeedHomeScreenProps) {
-	const [userData, setUserData] = useState<{
-		id: string;
-		firstName: string;
-		lastName: string;
-	} | null>(null);
-
-	useEffect(() => {
-		const fetchUserData = async () => {
-			try {
-				const response = await fetch('https://localhost:8081/user');
-				const data = await response.json();
-				console.log('반환값: ', data);
-				setUserData(data);
-			} catch (error) {
-				console.error('Error fetching user data:', error);
-			}
-		};
-		fetchUserData();
-	}, []);
-
+function FeedHomeScreen() {
 	return (
-		<SafeAreaView style={styles.container}>
-			<Text>피드 스크린</Text>
-			<Text className="text-blue-600">native wind 테스트입니다.</Text>
-			<Text>{userData?.firstName}</Text>
+		<SafeAreaView className="flex-1 bg-light-common-white dark:bg-light-common-black">
+			<ScrollView>
+				<FeedBanner />
+				{/* Second Section */}
+				<RecruitMemberSection />
+				{/*	Third Section */}
+				<FamousMoim />
+				{/*	Fourth Section */}
+				<NewUpdateMoim />
+				{/*	Fifth Section */}
+				<IntroMoim />
+			</ScrollView>
 		</SafeAreaView>
 	);
 }
-
-const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-	},
-});
 
 export default FeedHomeScreen;

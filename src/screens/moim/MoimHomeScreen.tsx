@@ -6,7 +6,7 @@ interface MoimHomeScreenProps {}
 function MoimHomeScreen({}: MoimHomeScreenProps) {
 	return (
 		<SafeAreaView style={styles.container}>
-			<Text>내 모임</Text>
+			<Text className="text-[10]">내 모임</Text>
 		</SafeAreaView>
 	);
 }
