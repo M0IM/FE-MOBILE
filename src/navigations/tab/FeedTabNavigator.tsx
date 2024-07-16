@@ -4,11 +4,11 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { RouteProp } from '@react-navigation/native';
 import Logo from '@/components/common/Logo';
-import FeedHomeHeaderRight from '@/components/feedHome/FeedHomeHeaderRight.tsx';
+import FeedHomeHeaderRight from '@/components/feedHome/FeedHomeHeaderRight';
 import { colors, feedTabNavigations } from '@/constants';
+import MoimSpaceStackNavigator from '@/navigations/stack/MoimSpaceStackNavigator';
 import ChatHomeScreen from '@/screens/chat/ChatHomeScreen';
 import FeedHomeScreen from '@/screens/feed/FeedHomeScreen';
-import MoimHomeScreen from '@/screens/moim/MoimHomeScreen';
 import MyHomeScreen from '@/screens/my/MyHomeScreen';
 import useThemeStore from '@/store/useThemeStore';
 
@@ -59,7 +59,7 @@ function FeedTabNavigator() {
 
 	return (
 		<Tab.Navigator
-			screenOptions={({ route }) => ({
+			screenOptions={({ route, navigation }) => ({
 				headerStyle: {
 					backgroundColor: colors[theme].WHITE,
 					shadowColor: colors[theme].GRAY_200,
@@ -75,23 +75,20 @@ function FeedTabNavigator() {
 					borderTopColor: colors[theme].GRAY_200,
 					borderTopWIdth: StyleSheet.hairlineWidth,
 				},
-				headerShown: false,
+				headerShown: true,
+				headerTitle: '',
+				headerLeft: () => Logo(navigation),
+				headerRight: () => FeedHomeHeaderRight(navigation),
 				tabBarIcon: ({ focused }) => TabBarIcons(route, focused),
 			})}
 		>
 			<Tab.Screen
 				name={feedTabNavigations.FEED_HOME}
 				component={FeedHomeScreen}
-				options={({ navigation }) => ({
-					headerShown: true,
-					headerTitle: '',
-					headerLeft: () => Logo(navigation),
-					headerRight: () => FeedHomeHeaderRight(navigation),
-				})}
 			/>
 			<Tab.Screen
 				name={feedTabNavigations.MOIM_HOME}
-				component={MoimHomeScreen}
+				component={MoimSpaceStackNavigator}
 			/>
 			<Tab.Screen
 				name={feedTabNavigations.CHAT_HOME}

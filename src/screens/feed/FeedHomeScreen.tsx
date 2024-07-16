@@ -1,12 +1,4 @@
-import {
-	Dimensions,
-	Pressable,
-	SafeAreaView,
-	ScrollView,
-	Text,
-	View,
-} from 'react-native';
-import Avatar from '@/components/common/Avatar.tsx';
+import { SafeAreaView, ScrollView } from 'react-native';
 import FamousMoim from '@/components/feedHome/FamousMoim';
 import FeedBanner from '@/components/feedHome/FeedBanner';
 import IntroMoim from '@/components/feedHome/IntroMoim';
