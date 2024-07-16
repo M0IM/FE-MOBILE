@@ -89,6 +89,9 @@ function FeedTabNavigator() {
 			<Tab.Screen
 				name={feedTabNavigations.MOIM_HOME}
 				component={MoimSpaceStackNavigator}
+				options={{
+					headerShown: false,
+				}}
 			/>
 			<Tab.Screen
 				name={feedTabNavigations.CHAT_HOME}

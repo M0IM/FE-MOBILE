@@ -1,11 +1,5 @@
 import React from 'react';
-import {
-	FlatList,
-	Pressable,
-	SafeAreaView,
-	StyleSheet,
-	Text,
-} from 'react-native';
+import { FlatList, SafeAreaView, Text } from 'react-native';
 import { NavigationProp } from '@react-navigation/native';
 import HorizontalCard from '@/components/common/HorizontalCard';
 import { DUMMY_MOIM } from '@/components/feedHome/RecruitMemberSection';
