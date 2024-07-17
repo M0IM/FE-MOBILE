@@ -1,59 +1,38 @@
-import React from 'react';
-import { Image, View } from 'react-native';
+import { Image, Pressable, PressableProps } from 'react-native';
+import { cva } from 'class-variance-authority';
+import { cn } from '@/utils/cn';
 
-// Enum for size
-enum SIZE {
-	SMALL = 'sm',
-	MEDIUM = 'md',
-	LARGE = 'lg',
-	X_LARGE = 'xl',
+interface AvatarProps extends PressableProps {
+	imgUrl?: string;
+	size?: 'sm' | 'md' | 'lg';
 }
 
-// Type for props
-type Props = {
-	image?: string | null;
-	size?: SIZE;
-	highlight?: boolean;
-};
-
-// Function to get the image size style
-function getImageSizeStyle(size: SIZE) {
-	switch (size) {
-		case SIZE.SMALL:
-			return { container: 'w-9 h-9', image: 'w-8.5 h-8.5 p-0.4' };
-		case SIZE.MEDIUM:
-			return { container: 'w-11 h-11', image: 'w-10.5 h-10.5 p-0.4' };
-		case SIZE.LARGE:
-			return { container: 'w-17 h-17', image: 'w-16 h-16 p-0.8' };
-		case SIZE.X_LARGE:
-			return { container: 'w-36 h-36', image: 'w-34.5 h-34.5 p-1.2' };
-		default:
-			throw new Error(`Unsupported type size: ${size}`);
-	}
-}
-
-// Function to get the container style
-function getContainerStyle(size: SIZE, highlight: boolean) {
-	const baseStyle = 'rounded-full flex justify-center items-center';
-	const highlightStyle = highlight
-		? 'bg-gradient-to-bl from-fuchsia-600 via-rose-500 to-amber-300'
-		: '';
-
-	const { container } = getImageSizeStyle(size);
-
-	return `${baseStyle} ${highlightStyle} ${container}`;
-}
-
-// Avatar component
-function Avatar({ image, size = SIZE.LARGE, highlight = false }: Props) {
-	const containerStyle = getContainerStyle(size, highlight);
-	const { image: imageStyle } = getImageSizeStyle(size);
-
+function Avatar({ className, imgUrl, size, ...props }: AvatarProps) {
 	return (
-		<View className={containerStyle}>
-			<Image source={{ uri: `${image}` }} className={imageStyle} />
-		</View>
+		<Pressable {...props} className={cn(avatarVariants({ size }), className)}>
+			<Image
+				source={{
+					uri:
+						imgUrl ||
+						'https://img.sbs.co.kr/newimg/news/20231006/201841141.jpg',
+				}}
+				className="w-full h-full rounded-full"
+			/>
+		</Pressable>
 	);
 }
+
+const avatarVariants = cva('h-28 w-28 rounded-full active:bg-hover', {
+	variants: {
+		size: {
+			sm: 'w-5 h-5',
+			md: 'w-10 h-10',
+			lg: 'w-20 h-20',
+		},
+	},
+	defaultVariants: {
+		size: 'sm',
+	},
+});
 
 export default Avatar;
