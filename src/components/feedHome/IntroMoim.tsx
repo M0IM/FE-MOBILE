@@ -1,4 +1,5 @@
 import { FlatList, Image, Pressable, Text, View } from 'react-native';
+import Avatar from '@/components/common/Avatar.tsx';
 import { DUMMY_MOIM } from '@/components/feedHome/RecruitMemberSection';
 
 function Item({ item }) {
@@ -9,10 +10,7 @@ function Item({ item }) {
 				className="w-full h-full rounded-xl relative"
 			/>
 			<Pressable className="absolute bottom-3 flex flex-row justify-between items-center shadow-sm w-full active:bg-hover">
-				<Image
-					source={{ uri: item.imageUri }}
-					className="w-[20] h-[20] rounded-2xl border-black border-2"
-				/>
+				<Avatar imgUrl={item.imageUri} />
 				<View className="flex flex-1 ml-2 flex-col">
 					<Text
 						numberOfLines={1}
