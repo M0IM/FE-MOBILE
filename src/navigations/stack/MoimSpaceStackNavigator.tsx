@@ -1,9 +1,6 @@
-import { SafeAreaView, Text, View } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { fontFamily } from 'nativewind/dist/postcss/to-react-native/properties/font-family';
-import CircleIconButton from '@/components/common/CircleIconButton.tsx';
-import Logo from '@/components/common/Logo.tsx';
-import FeedHomeHeaderRight from '@/components/feedHome/FeedHomeHeaderRight.tsx';
+import Logo from '@/components/common/Logo';
+import FeedHomeHeaderRight from '@/components/feedHome/FeedHomeHeaderRight';
 import { moimSpaceNavigations } from '@/constants';
 import MoimDetailScreen from '@/screens/moim/MoimDetailScreen';
 import MoimHomeScreen from '@/screens/moim/MoimHomeScreen';
@@ -43,6 +40,7 @@ function MoimSpaceStackNavigator() {
 				component={MoimDetailScreen}
 				options={{
 					headerShown: false,
+					headerTransparent: true,
 				}}
 			/>
 		</Stack.Navigator>

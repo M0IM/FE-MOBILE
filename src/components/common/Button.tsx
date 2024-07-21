@@ -1,5 +1,5 @@
 import React from 'react';
-import { Pressable, PressableProps } from 'react-native';
+import { Pressable, PressableProps, Text } from 'react-native';
 import { cva } from 'class-variance-authority';
 import { cn } from '@/utils/cn';
 
