@@ -1,18 +1,13 @@
-import {
-	FlatList,
-	Image,
-	Pressable,
-	ScrollView,
-	Text,
-	View,
-} from 'react-native';
+import { FlatList, Image, ScrollView, Text, View } from 'react-native';
 import { PieChart } from 'react-native-gifted-charts';
 import Avatar from '@/components/common/Avatar';
-import DescriptionDetailBox from '@/components/common/DescriptionDetailBox.tsx';
-import Tag from '@/components/common/Tag.tsx';
-import { IntroItem } from '@/components/feedHome/IntroMoim.tsx';
-import { DUMMY_MOIM } from '@/components/feedHome/RecruitMemberSection.tsx';
+import DescriptionDetailBox from '@/components/common/DescriptionDetailBox';
+import Tag from '@/components/common/Tag';
+import { IntroItem } from '@/components/feedHome/IntroMoim';
+import { DUMMY_MOIM } from '@/components/feedHome/RecruitMemberSection';
 import ColumnTextBox from '@/components/moimDetail/ColumnTextBox';
+import DetailNoticeBox from '@/components/moimDetail/DetailNoticeBox';
+import MainScheduleBox from '@/components/moimDetail/MainScheduleBox';
 
 interface MoimDetailScreenProps {
 	route: {
@@ -129,63 +124,22 @@ function MoimDetailScreen({ route }: MoimDetailScreenProps) {
 							<Text className="m-2 text-xl font-bold text-light-gray-500">
 								모임 주요 일정
 							</Text>
-							<Pressable className="active:bg-hover active:rounded-2xl w-full">
-								<View className="flex-col gap-2 justify-center items-start">
-									<View className="flex-row gap-2 justify-start items-center">
-										<View className="h-6 border-main border-2" />
-										<Text className="font-bold text-xl">
-											매주 월요일 정기 스터디
-										</Text>
-									</View>
-									<View className="flex-row items-center justify-center">
-										<Text className="font-semibold mx-5">2024년 05월 20일</Text>
-										<Text className="text-main font-bold">D-2</Text>
-									</View>
-								</View>
-								<View className="flex-col justify-center items-start gap-y-1 my-2">
-									<View className="flex-row ml-5 items-center justify-center">
-										<Text className="mr-2">위치</Text>
-										<Text>상명대학교 G208</Text>
-									</View>
-									<View className="flex-row ml-5 items-center justify-center">
-										<Text className="mr-2">비용</Text>
-										<Text>0 원</Text>
-									</View>
-									<View className="flex-row ml-5 items-center justify-center">
-										<Text className="mr-2">참여 인원</Text>
-										<Text>30 명</Text>
-									</View>
-								</View>
-							</Pressable>
-							{/* DIVIDER */}
-							<Pressable className="active:bg-hover active:rounded-2xl w-full">
-								<View className="flex-col gap-2 justify-center items-start">
-									<View className="flex-row gap-2 justify-start items-center">
-										<View className="h-6 border-main border-2" />
-										<Text className="font-bold text-xl">
-											매주 월요일 정기 스터디
-										</Text>
-									</View>
-									<View className="flex-row items-center justify-center">
-										<Text className="font-semibold mx-5">2024년 05월 20일</Text>
-										<Text className="text-main font-bold">D-2</Text>
-									</View>
-								</View>
-								<View className="flex-col justify-center items-start gap-y-1 my-2">
-									<View className="flex-row ml-5 items-center justify-center">
-										<Text className="mr-2">위치</Text>
-										<Text>상명대학교 G208</Text>
-									</View>
-									<View className="flex-row ml-5 items-center justify-center">
-										<Text className="mr-2">비용</Text>
-										<Text>0 원</Text>
-									</View>
-									<View className="flex-row ml-5 items-center justify-center">
-										<Text className="mr-2">참여 인원</Text>
-										<Text>30 명</Text>
-									</View>
-								</View>
-							</Pressable>
+							<MainScheduleBox
+								title="매주 월요일 정기 스터디"
+								date="2024년 05월 20일"
+								daysLeft="D - 2"
+								location="상명대학교 G-208"
+								cost={0}
+								participants={30}
+							/>
+							<MainScheduleBox
+								title="매주 월요일 정기 스터디"
+								date="2024년 05월 20일"
+								daysLeft="D - 2"
+								location="상명대학교 G-208"
+								cost={0}
+								participants={30}
+							/>
 						</View>
 					</View>
 					{/*	eighth box */}
@@ -194,46 +148,17 @@ function MoimDetailScreen({ route }: MoimDetailScreenProps) {
 							<Text className="m-2 text-xl font-bold text-light-gray-500">
 								공지사항
 							</Text>
-							<Pressable className="w-full flex-col justify-between h-[103] rounded-2xl py-3 px-4 border-0.5 active:bg-hover">
-								<View className="mb-2">
-									<Text className="font-bold text-lg">
-										매주 월요일 정기 스터디
-									</Text>
-									<Text className="font-semibold text-light-gray-700 mt-1 text-base">
-										여러분 무조건 참여해야 하는 활동 중 하나 입니다. 따라서
-										워크북을 꾸준히 하시길 바랍니다.
-									</Text>
+
+							{[1, 2].map((item, index) => (
+								<View>
+									<DetailNoticeBox
+										title="매주 월요일 정기 스터디"
+										description="여러분 무조건 참여해야 하는 활동 중 하나 입니다. 따라서 워크북을 꾸준히 하시길 바랍니다."
+										dateTime="2024년 5월 17일 오후 2:00"
+										authorName="다라/차다인"
+									/>
 								</View>
-								<View className="flex-row justify-between">
-									<Text className="text-light-gray-700">
-										2024년 5월 17일 오후 2:00
-									</Text>
-									<View className="flex flex-row gap-2 items-center justify-center">
-										<Avatar />
-										<Text>다라/차다인</Text>
-									</View>
-								</View>
-							</Pressable>
-							<Pressable className="w-full flex-col justify-between h-[103] rounded-2xl py-3 px-4 border-0.5 active:bg-hover">
-								<View className="mb-2">
-									<Text className="font-bold text-lg">
-										매주 월요일 정기 스터디
-									</Text>
-									<Text className="font-semibold text-light-gray-700 mt-1 text-base">
-										여러분 무조건 참여해야 하는 활동 중 하나 입니다. 따라서
-										워크북을 꾸준히 하시길 바랍니다.
-									</Text>
-								</View>
-								<View className="flex-row justify-between">
-									<Text className="text-light-gray-700">
-										2024년 5월 17일 오후 2:00
-									</Text>
-									<View className="flex flex-row gap-2 items-center justify-center">
-										<Avatar />
-										<Text>다라/차다인</Text>
-									</View>
-								</View>
-							</Pressable>
+							))}
 						</View>
 					</View>
 					{/*	ninth box */}
